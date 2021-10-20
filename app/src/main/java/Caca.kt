@@ -3,5 +3,6 @@ data class Caca(
     val request_cache_expiry: Int,
     val request_cached: Boolean,
     val request_hash: String,
-    val results: List<Result>
+    val results: List<Result>,
+    val resultado2:String
 )

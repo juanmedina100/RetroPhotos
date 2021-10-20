@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        cargarphotos()
+        cargarphotos()//Cargamos las fotos al iniciar la app y de forma aleatoria
         img_photo.setOnClickListener { cargarphotos() }
 
     }
@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
                     val data = response.body()!!
                     val rand:Int = (0..data.size).random()
                     //Cargamos las imagenes
-
                     Picasso.get().load(data[rand].download_url).into(img_photo)
                     txt_autor.text =data[rand].author
                     progressBar.visibility=View.INVISIBLE
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity() {
                     //Toast.makeText(this@MainActivity,"Número : ${rand} de un Total : ${data.size}",Toast.LENGTH_LONG).show()
                 }
             }
-
         }catch (e:Exception){
             withContext(Dispatchers.Main){
                 Toast.makeText(this@MainActivity,e.message,Toast.LENGTH_LONG).show()
