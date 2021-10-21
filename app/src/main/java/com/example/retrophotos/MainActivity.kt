@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         Picasso.get().load(R.drawable.descargar).into(img_thumb)
         progressBar.visibility= View.VISIBLE
         spin_kit.visibility=View.VISIBLE
-
         val api = Retrofit.Builder()
             .baseUrl("https://picsum.photos/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -54,6 +53,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity,e.message,Toast.LENGTH_LONG).show()
             }
         }
-        }//Fin de Coroutina
+        }
     }
 }
