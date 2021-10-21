@@ -26,9 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun cargarphotos(){
         Picasso.get().load(R.drawable.descargar).into(img_photo)
-        Picasso.get().load(R.drawable.descargar).into(img_thumb)
         progressBar.visibility= View.VISIBLE
-        spin_kit.visibility=View.VISIBLE
         val api = Retrofit.Builder()
             .baseUrl("https://picsum.photos/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -45,8 +43,6 @@ class MainActivity : AppCompatActivity() {
                     Picasso.get().load(data[rand].download_url).into(img_photo)
                     txt_autor.text =data[rand].author
                     progressBar.visibility=View.INVISIBLE
-                    spin_kit.visibility=View.INVISIBLE
-                    Toast.makeText(this@MainActivity,"${data[rand]}",Toast.LENGTH_LONG).show()
                 }
             }
         }catch (e:Exception){
