@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                     txt_autor.text =data[rand].author
                     progressBar.visibility=View.INVISIBLE
                     spin_kit.visibility=View.INVISIBLE
+                    Toast.makeText(this@MainActivity,"${data[rand]}",Toast.LENGTH_LONG).show()
                 }
             }
         }catch (e:Exception){
