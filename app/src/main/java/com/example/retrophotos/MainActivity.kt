@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         cargarphotos()//Cargamos las fotos al iniciar la app y de forma aleatoria
         img_photo.setOnClickListener { cargarphotos() }
-
     }
     fun cargarphotos(){
         Picasso.get().load(R.drawable.descargar).into(img_photo)
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         spin_kit.visibility=View.VISIBLE
 
         val api = Retrofit.Builder()
-            .baseUrl("https://picsum.photos/")//https://jsonplaceholder.typicode.com/
+            .baseUrl("https://picsum.photos/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(Interfaz::class.java)
@@ -48,7 +47,6 @@ class MainActivity : AppCompatActivity() {
                     txt_autor.text =data[rand].author
                     progressBar.visibility=View.INVISIBLE
                     spin_kit.visibility=View.INVISIBLE
-                    //Toast.makeText(this@MainActivity,"Número : ${rand} de un Total : ${data.size}",Toast.LENGTH_LONG).show()
                 }
             }
         }catch (e:Exception){
